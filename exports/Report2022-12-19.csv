@@ -1,0 +1,25 @@
+Sell Report
+Sell ID,Item Name,Type,Quantity,Sell Price,Sell Date
+1,med1,type1,9,200,2022-12-17 13:17:43
+2,med2,type2,2,400,2022-12-17 13:17:43
+3,med2,type2,4,400,2022-12-18 11:32:42
+4,med1,type1,9,200,2022-12-18 11:32:42
+5,med1,type1,5,200,2022-12-19 08:50:32
+6,med2,type2,6,400,2022-12-19 08:50:32
+7,type,typw,9,100,2022-12-19 08:50:32
+Purchase Report
+Purchase ID,Item Name,Type,Quantity,Purchase Price,Sell Price,Purchase Date
+1,med4,type1,19,12,123,2022-12-18 06:30:59
+Transaction Report
+Transaction ID,Customer Name,Transactions Cost,Received,Transaction Date
+1,Ahmad,369,1608,2022-12-13 09:16:32
+2,Ahmad,433,600,2022-12-13 13:01:08
+11,Ahmad,120,440,2022-12-17 12:48:52
+12,Ahmad,190,2600,2022-12-17 13:17:43
+13,Ahmad,190,3400,2022-12-18 11:32:43
+14,Ahmad,280,4300,2022-12-19 08:50:32
+      
+Profit loss Report
+Total Cost of medicine,1582
+Total Money Received,12948
+Net Profit,11366

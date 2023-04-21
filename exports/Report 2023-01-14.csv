@@ -1,0 +1,39 @@
+Sell Report
+Sell ID,Item Name,Type,Quantity,Sell Price,Sell Date
+15,PANADOL,Tablets,5,2,2023-01-14 17:13:12
+Purchase Report
+Purchase ID,Item Name,Type,Quantity,Purchase Price,Sell Price,Purchase Date
+4,AZOMAX (250mg),Capsules,500,40,50,2023-01-14 15:40:38
+5,AZOMAX (500mg),Capsules,500,40,50,2023-01-14 15:40:57
+6,AZOUR (500mg),Capsules,500,40,50,2023-01-14 15:43:10
+7,RISET,Capsules,500,19,25,2023-01-14 15:55:56
+8,RISEK,Capsules,500,19,25,2023-01-14 15:57:08
+9,RISEK,Capsules,500,19,25,2023-01-14 15:57:31
+10,RISEK INSTA,Sachet,500,11,20,2023-01-14 15:58:41
+11,RULING,Capsules,500,14,20,2023-01-14 16:03:31
+12,PANADOL (15ml),Drops,500,18,20,2023-01-14 16:06:26
+13,PANADOL (60ml),Suspension,500,24,30,2023-01-14 16:07:30
+14,PANADOL,Tablets,500,1,2,2023-01-14 16:08:13
+15,AMOXIL (500mg),Capsules,500,8,10,2023-01-14 16:13:30
+16,AMOXIL (10ml),Drops,500,20,25,2023-01-14 16:14:27
+17,AMOXIL Injection (500mg),Injection,500,54,60,2023-01-14 16:16:40
+18,AMOXIL Suspension (5ml),Suspensions,500,70,75,2023-01-14 16:19:22
+19,LINCOCIN Injection (300mg),Injection,500,45,50,2023-01-14 16:23:52
+20,LINCOCIN Injection (600mg),Injection,500,25,30,2023-01-14 16:25:39
+21,Arinac (90ml),Syrup,500,30,40,2023-01-14 16:29:07
+22,ARINAC (90ml),Syrup,500,30,40,2023-01-14 16:29:44
+23,ARINAC FORTE,Tablets,500,8,10,2023-01-14 16:33:05
+24,RIGIX ORAL,Oral Soln,500,45,50,2023-01-14 16:38:05
+25,RIGIX TAB,Tablets,500,20,22,2023-01-14 16:38:52
+26,DICLORAN GEL,Gel,500,58,65,2023-01-14 16:41:52
+27,DICLORAN INJ,Injection,500,15,20,2023-01-14 16:42:44
+28,DICLORAN TAB,Tablets,500,4,8,2023-01-14 16:43:37
+29,GLUCOPHAGE TAB,Tablets,500,43,50,2023-01-14 16:45:34
+Transaction Report
+Transaction ID,Customer Name,Transactions Cost,Received,Transaction Date
+17,AHMAD,1,10,2023-01-14 17:13:13
+      
+Profit loss Report
+Total Cost of medicine,1
+Total Money Received,10
+Net Profit,9

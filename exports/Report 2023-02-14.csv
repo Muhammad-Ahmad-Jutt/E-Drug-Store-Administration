@@ -1,0 +1,21 @@
+Sell Report
+Sell ID,Item Name,Type,Quantity,Sell Price,Sell Date
+40,RISEK CAP 20,Capsules,4,60.0,2023-02-13 07:22:28
+41,AZOMAX  CAP 500,Capsules,9,630.0,2023-02-13 07:22:28
+42,AZOMAX  CAP 250,Capsules,8,400.0,2023-02-13 07:28:40
+43,AZOMAX  CAP 500,Capsules,9,630.0,2023-02-13 07:28:40
+44,ARINAC FORTE TAB,Tablets,100,1000.0,2023-02-14 06:39:33
+Purchase Report
+Purchase ID,Item Name,Type,Quantity,Purchase Price,Sell Price,Purchase Date
+88,test item,test,900,80.0,100.0,2023-02-13 07:25:56
+89,test item,test,990,80.0,100.0,2023-02-13 07:26:47
+Transaction Report
+Transaction ID,Customer Name,Transactions Cost,Received,Transaction Date
+33,Ahmad Arshad,502.84000000000003,690.0,2023-02-13 07:22:30
+34,Ahmad,770.0,1030.0,2023-02-13 07:28:41
+35,Ahmad Arshad,740.0,1000.0,2023-02-14 06:39:34
+      
+Profit loss Report
+Total Cost of medicine,2012.8400000000001
+Total Money Received,2720.0
+Net Profit,707.1599999999999
