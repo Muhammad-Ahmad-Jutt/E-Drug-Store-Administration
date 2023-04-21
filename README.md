@@ -1,4 +1,4 @@
-Changes you need to do before using softwre
+1.  Changes you need to do before using softwre
 
 
     1.  First you have to install library
@@ -18,7 +18,10 @@ Changes you need to do before using softwre
     4.  Also can change the size of the window according to your need and want
 
 
-If your doing for contribution to open source project then you can
-    add the icons to the windows title bar
-    enhance any type of functionality after discussion 
-    can create a more attractive gui 
+2.  If your doing for contribution to open source project then you can
+        
+        add the icons to the windows title bar
+        
+        enhance any type of functionality
+        
+        can create a more attractive gui 
