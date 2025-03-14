@@ -1,27 +1,78 @@
-1.  Changes you need to do before using softwre
+# 🏥 E-Drug Store Administration  
 
+An **open-source** pharmacy management system designed to **store, manage, and track** medicines efficiently.  
+Feel free to **use, customize, or contribute** to improve it! 🚀  
 
-    1.  First you have to install library
+---
 
+## **🛠 Install Dependencies**  
+Ensure you have **Python 3.10+** installed. Then, install the required dependencies:  
+```sh
+pip install -r requirements.txt
+```
 
-            1.  pip install datetime
+---
 
-            2.  pip install tkcalendar
+## **📂 Setup the Database**  
+The database will we automatically setup when you start to use the app :  
+```sh
+python main.py
+```
 
-            3.  pip install ttkwidgets
+This will:  
+✔ Create the database (`pharma.db`) if it doesn’t exist.  
+✔ Apply the schema from `pharma_schema.sql`.  
+✔ **Automatically add users from the provided `.env` file**.  
 
+---
 
-    2.  Rename the location of the database and the icons in all the files According to your computer path
-    
-    3.  rename the location of icons used in the file According to you computer path
-    
-    4.  Also can change the size of the window according to your need and want
+## **📌 Provided `.env` File**  
+The project comes with a **pre-configured `.env` file**, which includes default credentials and settings.  
+**Modify it manually if necessary.**  
 
+---
 
-2.  If your doing for contribution to open source project then you can
-        
-        add the icons to the windows title bar
-        
-        enhance any type of functionality
-        
-        can create a more attractive gui 
+## **🔑 Default Credentials**  
+The **default admin account** is set from the `.env` file:  
+| Field      | Value (from `.env`) |
+|------------|----------------------|
+| Username   | `Ahmad` |
+| Password   | `Ahm@d123` |
+
+🔹 If you need **custom users**, modify the `.env` file **before running `setup.py`**.
+
+---
+
+## **🚀 Contribution Guidelines**  
+We welcome contributions! To contribute:  
+1. **Fork the repository** on GitHub.  
+2. Create a **new branch** for your feature:  
+   ```sh
+   git checkout -b feature-new
+   ```
+3. Make your changes, then commit and push:  
+   ```sh
+   git add .
+   git commit -m "Added new feature"
+   git push origin feature-new
+   ```
+4. Open a **Pull Request (PR)** on GitHub.  
+
+---
+
+## **📬 Contact for Customization**  
+Need modifications or customization? Reach out!  
+📧 **Email:** `ahmadarshad12345@gmail.com`  
+📞 **WhatsApp:** `+92-324-4385068`  
+
+---
+
+## **📜 License**  
+This project is **open-source**, meaning you can:  
+✔ Use it for **personal** or **commercial** projects.  
+✔ Modify it as needed.  
+✔ Contribute back to improve it!  
+
+---
+
+💡 **We encourage you to contribute and enhance this project! Happy coding! 🚀**  

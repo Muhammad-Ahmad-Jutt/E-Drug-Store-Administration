@@ -4,6 +4,10 @@ from tkinter import ttk
 
 from tkcalendar import DateEntry
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+
 
 class ManageUsers(Toplevel):
     def __init__(self):
@@ -102,7 +106,7 @@ class ManageUsers(Toplevel):
         self.progress_label.grid(row=0, column=7, padx=10, pady=10)
         self.close_Button.grid(row=0, column=8, padx=10, pady=10)
         # connecting to database
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         cur.execute("SELECT * FROM Users")
         meddata = cur.fetchall()
@@ -134,7 +138,7 @@ class ManageUsers(Toplevel):
         dob = self.dob_Entry.get()
         address = self.address_Entry.get()
         SpecialSym = ['$', '@', '#', '%']
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         if name and password and phoneno and jobl and dob and address != "":
             usercheckstat = f"SELECT *FROM Users WHERE Name ='{name}';"
@@ -171,7 +175,7 @@ class ManageUsers(Toplevel):
             self.data.delete(i)
         name = self.name_Entry.get()
         if name != '':
-            conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+            conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
             cur = conn.cursor()
             search_statement = f"SELECT *FROM Users WHERE Name LIKE '{name}';"
             cur.execute(search_statement)
@@ -203,7 +207,7 @@ class ManageUsers(Toplevel):
             self.name_Entry.insert(0, values[1])
         name = self.name_Entry.get()
         if name != "":
-            conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+            conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
             statment1 = f"DELETE FROM Users WHERE NAME = '{name}';"
             cur = conn.cursor()
             cur.execute(statment1)
@@ -236,7 +240,7 @@ class ManageUsers(Toplevel):
         # to clear the previous data of tree view
         for i in self.data.get_children():
             self.data.delete(i)
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         cur.execute("SELECT * FROM Users")
         meddata = cur.fetchall()

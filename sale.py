@@ -5,7 +5,9 @@ import tkinter as tk
 from tkinter.messagebox import askyesno
 from ttkwidgets.autocomplete import AutocompleteCombobox
 
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent
 class Sale(Toplevel):
     def __init__(self):
         Toplevel.__init__(self)
@@ -42,7 +44,7 @@ class Sale(Toplevel):
         #
         # # Adding data to the first frame
         # list for combobox
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         namestatemnt = f'SELECT Name FROM medicine'
         cur.execute(namestatemnt)
@@ -158,7 +160,7 @@ class Sale(Toplevel):
 
     def searchbyname(self, *args):
         name = self.fname_Entry.get()
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         idstat = f"SELECT ID FROM medicine WHERE Name = '{name}'"
         cur.execute(idstat)
@@ -203,7 +205,7 @@ class Sale(Toplevel):
         # For adding color in rows
         data1.tag_configure('oddrow', background="white")
         data1.tag_configure('evenrow', background="lightblue")
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         cur.execute(f"SELECT * FROM SALT WHERE Salt = '{salt}'")
         meddata1 = cur.fetchall()
@@ -222,7 +224,7 @@ class Sale(Toplevel):
         conn.close()
 
     def search(self, iid):
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         checkstatment = f"SELECT Name FROM Search WHERE ID = '{iid}';"
         cur.execute(checkstatment)
@@ -313,7 +315,7 @@ class Sale(Toplevel):
     def makechanges(self, *args):
         cus = self.cus_Name_Entry.get()
         if cus != "":
-            conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+            conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
             cur = conn.cursor()
             subtrst = f'UPDATE medicine SET Quantity = Quantity - ? WHERE ID = ?'
             additionsell = f"INSERT INTO Sell(Name, Type, Quantity, sell_Price) VALUES (?, ?, ?, ?) "
@@ -351,7 +353,7 @@ class Sale(Toplevel):
     def moredetail(self):
         try:
             iid = self.medid
-            conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+            conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
             cur = conn.cursor()
             stat = f"SELECT *FROM medicine WHERE ID = '{iid}'"
             med = cur.execute(stat).fetchone()
@@ -432,7 +434,7 @@ class Sale(Toplevel):
     def addtotrans(self, cus):
         totbill = self.tbill
         totcost = self.tcost
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         stat = f"INSERT INTO TRANSACTIONS(CusName, Cost, Received) VALUES (?, ?, ?)"
         cur.execute(stat, (cus, totcost, totbill))

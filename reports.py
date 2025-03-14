@@ -8,7 +8,9 @@ from datetime import date
 from datetime import timedelta
 import pandas as pd
 
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent
 class Reports(Toplevel):
     def __init__(self):
         Toplevel.__init__(self)
@@ -21,7 +23,7 @@ class Reports(Toplevel):
         self.bottom = Frame(self, height=450, bg='white')
         self.bottom.pack(fill=X)
         # now creating the login label and buttons
-        self.logimg = PhotoImage(file=r'/home/ahmad/Desktop/E_Drug Store/icons/admin.png')
+        self.logimg = PhotoImage(file=f'{BASE_DIR}/icons/admin.png')
         self.logimglbl = Label(self.top, image=self.logimg, bg='gray', borderwidth=0)
         self.logintext = Label(self.top, text="Reports ", font='italic 20 bold', fg='black', bg='gray')
         self.logimglbl.place(x=10, y=10)
@@ -107,7 +109,7 @@ class Reports(Toplevel):
         self.exportreport(desired_day)
 
     def exportreport(self, fdate):
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         purchaseh = ["Purchase Report"]
         sellh = ["Sell Report"]
@@ -121,31 +123,31 @@ class Reports(Toplevel):
         sdata = cur.execute(fsstatement).fetchall()
         pdata = cur.execute(fpstatment).fetchall()
         tdata = cur.execute(ftstatement).fetchall()
-        with open(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", 'w', newline='') as fle:
+        with open(f"{BASE_DIR}/exports/gen.csv", 'w', newline='') as fle:
             writer = csv.writer(fle)
 
         for col in sdata:
-            with open(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", 'a', newline='') as file:
+            with open(f"{BASE_DIR}/exports/gen.csv", 'a', newline='') as file:
                 writer = csv.writer(file)
                 writer.writerow(sellh)
             fs = pd.DataFrame(data=sdata)
-            fs.to_csv(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", header=fsheader, index=False,
+            fs.to_csv(f"{BASE_DIR}/exports/gen.csv", header=fsheader, index=False,
                       mode='a')
             break
         for col in pdata:
-            with open(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", 'a', newline='') as file:
+            with open(f"{BASE_DIR}/exports/gen.csv", 'a', newline='') as file:
                 writer = csv.writer(file)
                 writer.writerow(purchaseh)
             fs = pd.DataFrame(data=pdata)
-            fs.to_csv(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", header=fpheader, index=False,
+            fs.to_csv(f"{BASE_DIR}/exports/gen.csv", header=fpheader, index=False,
                       mode='a')
             break
         for col in tdata:
-            with open(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", 'a', newline='') as file:
+            with open(f"{BASE_DIR}/exports/gen.csv", 'a', newline='') as file:
                 writer = csv.writer(file)
                 writer.writerow(transactionh)
             ft = pd.DataFrame(data=tdata)
-            ft.to_csv(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", header=ftheader, index=False,
+            ft.to_csv(f"{BASE_DIR}/exports/gen.csv", header=ftheader, index=False,
                       mode='a')
             break
         self.makeprl()
@@ -163,7 +165,7 @@ class Reports(Toplevel):
             if fd < td:
                 frdate = fyear + "-" + fmonth + "-" + fday
                 todate = tyear + "-" + tmonth + "-" + tday
-                conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+                conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
                 cur = conn.cursor()
                 purchaseh = ["Purchase Report"]
                 sellh = ["Sell Report"]
@@ -177,30 +179,30 @@ class Reports(Toplevel):
                 sdata = cur.execute(sstatement).fetchall()
                 pdata = cur.execute(pstatement).fetchall()
                 tdata = cur.execute(tstatement).fetchall()
-                with open(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", 'w', newline='') as fle:
+                with open(f"{BASE_DIR}/exports/gen.csv", 'w', newline='') as fle:
                     writer = csv.writer(fle)
                 for col in sdata:
-                    with open(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", 'a', newline='') as file:
+                    with open(f"{BASE_DIR}/exports/gen.csv", 'a', newline='') as file:
                         writer = csv.writer(file)
                         writer.writerow(sellh)
                     fs = pd.DataFrame(data=sdata)
-                    fs.to_csv(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", header=fsheader,
+                    fs.to_csv(f"{BASE_DIR}/exports/gen.csv", header=fsheader,
                               index=False, mode='a')
                     break
                 for col in pdata:
-                    with open(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", 'a', newline='') as file:
+                    with open(f"{BASE_DIR}/exports/gen.csv", 'a', newline='') as file:
                         writer = csv.writer(file)
                         writer.writerow(purchaseh)
                     fs = pd.DataFrame(data=pdata)
-                    fs.to_csv(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", header=fpheader,
+                    fs.to_csv(f"{BASE_DIR}/exports/gen.csv", header=fpheader,
                               index=False, mode='a')
                     break
                 for col in tdata:
-                    with open(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", 'a', newline='') as file:
+                    with open(f"{BASE_DIR}/exports/gen.csv", 'a', newline='') as file:
                         writer = csv.writer(file)
                         writer.writerow(transactionh)
                     ft = pd.DataFrame(data=tdata)
-                    ft.to_csv(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", header=ftheader,
+                    ft.to_csv(f"{BASE_DIR}/exports/gen.csv", header=ftheader,
                               index=False, mode='a')
                     break
                 self.makeprl()
@@ -210,7 +212,7 @@ class Reports(Toplevel):
             messagebox.showerror("Incomplete form", "Please enter the complete date(DD-MM-YYYY)", parent=self)
 
     def makeprl(self):
-        with open(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", 'r') as file:
+        with open(f"{BASE_DIR}/exports/gen.csv", 'r') as file:
             reader = csv.reader(file, delimiter=",")
             tansections_start = False
             transaction_headerlist = None
@@ -238,13 +240,13 @@ class Reports(Toplevel):
         datalist = [["      "], ["Profit loss Report"], ["Total Cost of medicine", costsum],
                     ["Total Money Received", receivedsum],
                     ["Net Profit", profit]]
-        with open(r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv", 'a', newline="") as file:
+        with open(f"{BASE_DIR}/exports/gen.csv", 'a', newline="") as file:
             writer = csv.writer(file)
             writer.writerows(datalist)
         self.cpfile()
 
     def cpfile(self):
         tdate = date.today()
-        fileadd = r"/home/ahmad/Desktop/E_Drug Store/exports/gen.csv"
-        filedestination = r"/home/ahmad/Desktop/E_Drug Store/exports/Report "+str(tdate)+".csv"
+        fileadd = f"{BASE_DIR}/exports/gen.csv"
+        filedestination = f"{BASE_DIR}/exports/Report "+str(tdate)+".csv"
         shutil.copy(fileadd, filedestination)
