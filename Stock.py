@@ -2,7 +2,9 @@ import sqlite3
 from tkinter import *
 from tkinter import ttk, messagebox
 
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent
 class Stock(Toplevel):
     def __init__(self):
         Toplevel.__init__(self)
@@ -113,7 +115,7 @@ class Stock(Toplevel):
         self.progress_label.grid(row=0, column=9, padx=10, pady=10)
         self.close_Button.grid(row=0, column=10, padx=10, pady=10)
         # now we will work on the retrieval of data, but firstly we have to make a
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         cur.execute("SELECT * FROM medicine")
         meddata = cur.fetchall()
@@ -138,7 +140,7 @@ class Stock(Toplevel):
         # to clear the previous data of tree view
         for i in self.data.get_children():
             self.data.delete(i)
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         cur.execute("SELECT * FROM medicine")
         meddata = cur.fetchall()
@@ -168,7 +170,7 @@ class Stock(Toplevel):
         it_Salt = self.salt_Entry.get()
         it_Company = self.company_Entry.get()
         if it_Name and it_Type and it_Quantity and it_PPrice and it_SPrice and it_Salt and it_Company != "":
-            conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+            conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
             cur = conn.cursor()
             check_statement = f"SELECT *FROM medicine WHERE Name='{it_Name}';"
             cur.execute(check_statement)
@@ -207,7 +209,7 @@ class Stock(Toplevel):
         it_Salt = self.salt_Entry.get()
         it_Company = self.company_Entry.get()
         if it_Name and it_Type and it_PPrice and it_SPrice and it_Salt and it_Company != "":
-            conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+            conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
             cur = conn.cursor()
             check_statement = f"SELECT *FROM medicine WHERE Name Like '{it_Name}';"
             cur.execute(check_statement)
@@ -243,7 +245,7 @@ class Stock(Toplevel):
         it_Salt = self.salt_Entry.get()
         it_Company = self.company_Entry.get()
         if it_Name and it_Type and it_Quantity and it_PPrice and it_SPrice and it_Salt and it_Company != "":
-            conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+            conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
             cur = conn.cursor()
             check_statement = f"SELECT *FROM medicine WHERE Name Like '{it_Name}';"
             cur.execute(check_statement)
@@ -310,7 +312,7 @@ class Stock(Toplevel):
             self.name_Entry.insert(0, values[1])
         id = self.id_Entry.get()
         name = self.name_Entry.get()
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         if id != '':
             int_ID = int(id)
@@ -351,7 +353,7 @@ class Stock(Toplevel):
             self.data.delete(i)
         self.id_Entry.config(state='normal')
         name = self.name_Entry.get()
-        conn = sqlite3.connect(r'/home/ahmad/Desktop/E_Drug Store/Database/pharma.db')
+        conn = sqlite3.connect(f'{BASE_DIR}/Database/pharma.db')
         cur = conn.cursor()
         if name != '':
             nstatement = f"SELECT *FROM medicine WHERE Name LIKE '{name}';"

@@ -5,6 +5,9 @@ from updateuser import ManageUsers
 from Stock import Stock
 from sale import Sale
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
 
 class AdminInterface(Toplevel):
     def __init__(self):
@@ -18,15 +21,15 @@ class AdminInterface(Toplevel):
         self.bottom = Frame(self, height=450, bg='white')
         self.bottom.pack(fill=X)
         # now creating the login label and buttons
-        self.logimg = PhotoImage(file=r'/home/ahmad/Desktop/E_Drug Store/icons/admin.png')
+        self.logimg = PhotoImage(file=f'{BASE_DIR}/icons/admin.png')
         self.logimglbl = Label(self.top, image=self.logimg, bg='gray', borderwidth=0)
         self.logintext = Label(self.top, text="Admin Interface ", font='italic 20 bold', fg='black', bg='gray')
         self.logimglbl.place(x=10, y=10)
         self.logintext.place(x=100, y=40)
-        self.upstockimg = PhotoImage(file=r"/home/ahmad/Desktop/E_Drug Store/icons/update stock.png")
-        self.upuserimg = PhotoImage(file=r"/home/ahmad/Desktop/E_Drug Store/icons/update user.png")
-        self.mkrepimg = PhotoImage(file=r"/home/ahmad/Desktop/E_Drug Store/icons/make reports.png")
-        self.inventoryimg = PhotoImage(file=r"/home/ahmad/Desktop/E_Drug Store/icons/inventory.png")
+        self.upstockimg = PhotoImage(file=f"{BASE_DIR}/icons/update stock.png")
+        self.upuserimg = PhotoImage(file=f"{BASE_DIR}/icons/update user.png")
+        self.mkrepimg = PhotoImage(file=f"{BASE_DIR}/icons/make reports.png")
+        self.inventoryimg = PhotoImage(file=f"{BASE_DIR}/icons/inventory.png")
         self.upuserbutton = Button(self.bottom, image=self.upuserimg, borderwidth=0, command=lambda: ManageUsers() )
         self.updatestock = Button(self.bottom, image=self.upstockimg, borderwidth=0, command=lambda: Stock() )
         self.makreports = Button(self.bottom, image=self.mkrepimg, borderwidth=0, command=lambda: Reports() )

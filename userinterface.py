@@ -1,7 +1,9 @@
 from tkinter import *
 from sale import Sale
 
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent
 class UserInterface(Toplevel):
     def __init__(self):
         Toplevel.__init__(self)
@@ -14,12 +16,12 @@ class UserInterface(Toplevel):
         self.bottom = Frame(self, height=450, bg='white')
         self.bottom.pack(fill=X)
         # now creating the login label and buttons
-        self.logimg = PhotoImage(file=r'/home/ahmad/Desktop/E_Drug Store/icons/sales.png')
+        self.logimg = PhotoImage(file=f'{BASE_DIR}/icons/sales.png')
         self.logimglbl = Label(self.top, image=self.logimg, bg='white')
         self.logintext = Label(self.top, text="User Interface ", font='italic 20 bold', fg='black', bg='white')
         self.logimglbl.place(x=10, y=10)
         self.logintext.place(x=100, y=40)
-        self.inventoryimg = PhotoImage(file=r"/home/ahmad/Desktop/E_Drug Store/icons/inventory.png")
+        self.inventoryimg = PhotoImage(file=f"{BASE_DIR}/icons/inventory.png")
         self.sale = Button(self.bottom, image=self.inventoryimg, borderwidth=0, command= lambda :  Sale() )
         self.exit_button = Button(self.bottom, borderwidth=0, text='Logout', bg='red', font="italic 10 bold", width=10, command=self.exitfun)
         self.duml = Label(self.bottom, text="--------->", font='italic 20 bold', fg='white', bg='white')
