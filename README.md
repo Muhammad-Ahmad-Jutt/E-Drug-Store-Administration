@@ -63,8 +63,6 @@ We welcome contributions! To contribute:
 ## **📬 Contact for Customization**  
 Need modifications or customization? Reach out!  
 📧 **Email:** `ahmadarshad12345@gmail.com`  
-📞 **WhatsApp:** `+92-324-4385068`  
-
 ---
 
 ## **📜 License**  
